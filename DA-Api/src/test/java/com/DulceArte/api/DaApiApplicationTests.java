@@ -1,4 +1,5 @@
-package com.DulceArte.api;
+
+package com.dulcearte.api;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
