@@ -1,0 +1,14 @@
+### Petición POST: Crear un nuevo cliente
+POST http://localhost:8080/api/clientes
+Content-Type: application/json
+
+{
+    "nombreCompleto": "Carlos García",
+    "direccion": "Avenida Siempre Viva 742",
+    "telefono": "555-9876",
+    "correoElectronico": "carlos.garcia@ejemplo.com",
+    "observaciones": "Cliente habitual"
+}
+
+### Petición GET: Obtener todos los clientes
+GET http://localhost:8080/api/clientes
