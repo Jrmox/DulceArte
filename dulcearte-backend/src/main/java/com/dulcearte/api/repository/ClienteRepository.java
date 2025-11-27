@@ -1,12 +1,14 @@
 package com.dulcearte.api.repository;
 
-import com.dulcearte.api.model.Cliente; // Importa la Entidad
+import com.dulcearte.api.model.Cliente;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
+import java.util.List;
 
-@Repository // Marca esta interfaz como un componente de acceso a datos
+@Repository
 public interface ClienteRepository extends JpaRepository<Cliente, Integer> {
-    // Hereda automáticamente: save(), findById(), findAll(), delete(), etc.
-
-    // No se requiere código adicional para las operaciones básicas (CRUD).
+    
+    // JpaRepository entiende que debe buscar clientes donde el campo 'activo' sea TRUE
+    // Este método reemplazará a findAll() en tu servicio para obtener solo activos.
+    List<Cliente> findByActivoTrue();
 }

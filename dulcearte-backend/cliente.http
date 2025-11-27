@@ -12,3 +12,76 @@ Content-Type: application/json
 
 ### Petición GET: Obtener todos los clientes
 GET http://localhost:8080/api/clientes
+
+
+### 1. POST: INSERTAR un nuevo Cliente (Creación)
+# Inserta el cliente "María López" y almacena su ID en la variable 'clienteId'.
+# Esto nos permite usar el mismo ID en las peticiones subsiguientes.
+
+POST http://localhost:8080/api/clientes
+Content-Type: application/json
+
+{
+    "nombreCompleto": "María López Pérez",
+    "direccion": "Calle de la Amargura #10",
+    "telefono": "505-88123456",
+    "correoElectronico": "maria.lopez@ejemplo.com",
+    "observaciones": "Cliente insertado para prueba de API."
+}
+
+> {% client.global.set("clienteId", response.body.idCliente); %} 
+### -------------------------------------------------------------
+
+### 2. GET: LISTAR todos los Clientes (Consulta)
+# Verifica que el nuevo cliente "María López" y cualquier otro cliente exista.
+
+GET http://localhost:8080/api/clientes
+Accept: application/json
+
+### -------------------------------------------------------------
+
+### 3. GET: BUSCAR un Cliente por ID (Verificación)
+# Usa el ID almacenado en la variable 'clienteId' de la petición POST anterior.
+
+GET http://localhost:8080/api/clientes/{{clienteId}}
+Accept: application/json
+
+### -------------------------------------------------------------
+
+### 4. PUT: ACTUALIZAR la Dirección y Observaciones
+# Actualiza los datos del cliente con el ID almacenado.
+# Nota: Enviamos solo los campos que queremos modificar (Request DTO).
+
+PUT http://localhost:8080/api/clientes/{{clienteId}}
+Content-Type: application/json
+
+{
+    "direccion": "Nueva Dirección Central, Zona 2",
+    "telefono": "505-88005500",
+    "observaciones": "Dirección y teléfono actualizados. Prueba de PUT exitosa."
+}
+
+### -------------------------------------------------------------
+
+### 5. GET: VERIFICAR la Actualización
+# Confirma que la dirección ha cambiado.
+
+GET http://localhost:8080/api/clientes/{{clienteId}}
+Accept: application/json
+
+### -------------------------------------------------------------
+
+### 6. DELETE: BORRAR el Cliente (Eliminación Lógica)
+# Marca el cliente como 'activo=false'.
+
+DELETE http://localhost:8080/api/clientes/{{clienteId}}
+
+### -------------------------------------------------------------
+
+### 7. GET: VERIFICAR la Eliminación
+# La respuesta de este GET debería devolver 404 NOT FOUND 
+# si implementas el filtro findByActivoTrue() en el repositorio
+# y no se permiten buscar clientes inactivos.
+
+GET http://localhost:8080/api/clientes/{{clienteId}}
+Accept: application/json
