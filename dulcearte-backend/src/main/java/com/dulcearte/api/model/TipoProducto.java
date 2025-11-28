@@ -21,4 +21,8 @@ public class TipoProducto {
 
     @Column(name = "nombre_tipo", unique = true, nullable = false, length = 50)
     private String nombreTipo;
+
+    public TipoProducto(Integer idTipoProducto) {
+        this.idTipoProducto = idTipoProducto;
+    }
 }

@@ -21,4 +21,8 @@ public class EstadoPedido {
 
     @Column(name = "nombre_estado", unique = true, nullable = false, length = 50)
     private String nombreEstado;
+
+    public EstadoPedido(Integer idEstado) {
+        this.idEstado = idEstado;
+    }
 }
