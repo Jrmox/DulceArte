@@ -41,4 +41,9 @@ public class Cliente {
 
     @Column(name = "activo", nullable = false)
     private Boolean activo = true; 
+
+    // CONSTRUCTOR REQUERIDO PARA REFERENCIAS JPA/HIBERNATE
+    public Cliente(Integer idCliente) {
+        this.idCliente = idCliente;
+    }
 }
