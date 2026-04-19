@@ -1,0 +1,26 @@
+ src/
+  └── main/
+      ├── java/com/dulcearte/app/
+      │   ├── controller/settings/
+	  │	  ├── request/
+      │   ├── service/
+      │   ├── repository/
+      │   ├── model/
+      │   ├── config/logging
+					/mapping
+					/properties
+	  │	  ├── dto/
+				 /catalogs
+				 /common
+				 /segurity
+				 /settings
+	  │	  ├── utils/	
+      │   └── exception/
+      └── resources/
+          ├── application.properties
+          └── static/
+		  
+-------
+C:\Users\jrube\OneDrive\Trabajo\ProyectoXOLO\STRATTEGO\Strattego-api\src\main\java\ni\com\xolosa\strattego		  
+C:\Users\jrube\OneDrive\Trabajo\ProyectoXOLO\STRATTEGO\Strattego-api\src\main\java\ni\com\xolosa\strattego\common  --- constantes 
+C:\Users\jrube\OneDrive\Trabajo\ProyectoXOLO\STRATTEGO\Strattego-api\src\main\java\ni\com\xolosa\strattego\config\authentication
